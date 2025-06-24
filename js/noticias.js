@@ -1,28 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
   fetch("data/noticias.json")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Error al cargar el archivo JSON.");
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(noticias => {
       const contenedor = document.getElementById("contenedor-noticias");
 
-      noticias.forEach(noticia => {
-        const articulo = document.createElement("article");
-        const titulo = document.createElement("h3");
-        const contenido = document.createElement("p");
+      if (!contenedor) {
+        console.error("No se encontró el contenedor de noticias.");
+        return;
+      }
 
+      noticias.forEach(noticia => {
+        const div = document.createElement("div");
+        div.classList.add("noticia");
+
+        const titulo = document.createElement("h3");
         titulo.textContent = noticia.titulo;
+
+        const contenido = document.createElement("p");
         contenido.textContent = noticia.contenido;
 
-        articulo.appendChild(titulo);
-        articulo.appendChild(contenido);
-        contenedor.appendChild(articulo);
+        div.appendChild(titulo);
+        div.appendChild(contenido);
+        contenedor.appendChild(div);
       });
     })
     .catch(error => {
-      console.error("Hubo un problema al cargar las noticias:", error);
+      console.error("Error al cargar las noticias:", error);
     });
 });
