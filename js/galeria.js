@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "https://picsum.photos/id/1070/600/400"
   ];
 
-  const contenedor = document.querySelector(".contenedor-galeria");
+  const contenedor = document.querySelector("#contenedor-galeria");
 
   if (!contenedor) {
     console.error("No se encontró el contenedor de la galería.");
@@ -21,13 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
     img.alt = "Proyecto";
     img.classList.add("miniatura");
 
-    // Establecer tamaño requerido
     img.width = 250;
     img.height = 250;
+
     img.style.width = "250px";
     img.style.height = "250px";
 
-    // Ampliar imagen al hacer clic
     img.addEventListener("click", () => {
       const overlay = document.createElement("div");
       overlay.className = "overlay";
