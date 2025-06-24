@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manuel Barberá - Desarrollador Web</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== BARRA DE NAVEGACIÓN ===== -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Logo de Manuel Barberá" width="50" height="50">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-item activo">Inicio</a></li>
+        <li><a href="/views/galeria.html" class="nav-item">Galería</a></li>
+        <li><a href="/views/presupuesto.html" class="nav-item">Presupuesto</a></li>
+        <li><a href="/views/contacto.html" class="nav-item">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main>
+
+    <!-- Sección 1: Presentación -->
+    <section id="presentacion">
+      <h2>Sobre mí</h2>
+      <p>Me llamo Manuel Barberá y soy desarrollador web con formación en HTML, CSS, JavaScript y otras tecnologías modernas. Me apasiona crear sitios funcionales, modernos y accesibles.</p>
+    </section>
+
+    <!-- Sección 2: Servicios -->
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Diseño de páginas web adaptadas a móviles</li>
+        <li>Desarrollo Front-End con JavaScript</li>
+        <li>Optimización y validación de código</li>
+      </ul>
+    </section>
+
+    <!-- Sección 3: Portafolio -->
+    <section id="portafolio">
+      <h2>Proyectos destacados</h2>
+      <p>En la galería puedes ver algunos de mis proyectos más recientes. ¡Haz clic en la sección de galería para ver más!</p>
+    </section>
+
+    <!-- Sección 4: Noticias dinámicas desde JSON -->
+    <section id="noticias">
+      <h2>Últimas noticias</h2>
+      <div id="contenedor-noticias">
+        <!-- Aquí se insertarán las noticias con JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="images/facebook.png" alt="Facebook" width="50" height="50">
+      </a>
+      <a href="https://www.twitter.com" target="_blank">
+        <img src="images/twitter.png" alt="Twitter" width="50" height="50">
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <img src="images/instagram.png" alt="Instagram" width="50" height="50">
+      </a>
+    </div>
+    <p>&copy; 2025 Manuel Barberá. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== BOTÓN "VOLVER ARRIBA" ===== -->
+  <button id="btn-arriba" title="Volver arriba">⬆</button>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="/data/noticias.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/cookies.js"></script>
+
+  <!-- ===== AVISO DE COOKIES ===== -->
+  <div class="aviso-cookies" id="aviso-cookies">
+    <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. 
+      <a href="cookies.html" target="_blank">Más información</a>.
+    </p>
+    <button id="btn-aceptar-cookies">Aceptar</button>
+  </div>
+  <div id="fondo-aviso-cookies" class="fondo-aviso-cookies"></div>
+
+</body>
+</html>

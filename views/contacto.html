@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Mi Sitio Web</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css">
+  <style>
+    #mapa {
+      width: 100%;
+      height: 400px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== BARRA DE NAVEGACIÓN ===== -->
+  <header>
+    <nav class="navbar">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="Logo de Manuel Barberá" width="50" height="50">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-item">Inicio</a></li>
+        <li><a href="galeria.html" class="nav-item">Galería</a></li>
+        <li><a href="presupuesto.html" class="nav-item">Presupuesto</a></li>
+        <li><a href="contacto.html" class="nav-item activo">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main>
+    <section>
+      <h2>¿Dónde estamos?</h2>
+      <div id="mapa"></div>
+    </section>
+
+    <section>
+      <h2>Datos de contacto</h2>
+      <p><strong>Nombre del negocio:</strong> Servicios Web Manuel</p>
+      <p><strong>Dirección:</strong> Calle Ejemplo 123, Chiclana de la Frontera, Cádiz</p>
+      <p><strong>Teléfono:</strong> 666 111 222</p>
+      <p><strong>Email:</strong> contacto@manuelweb.com</p>
+    </section>
+  </main>
+
+  <!-- ===== MAPA LEAFLET ===== -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const negocio = [36.4194, -6.1494]; // Chiclana
+      const mapa = L.map('mapa').setView(negocio, 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(mapa);
+
+      L.marker(negocio).addTo(mapa).bindPopup("Estamos aquí").openPopup();
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          const visitante = [pos.coords.latitude, pos.coords.longitude];
+
+          // Mostrar ruta
+          L.Routing.control({
+            waypoints: [
+              L.latLng(visitante),
+              L.latLng(negocio)
+            ],
+            routeWhileDragging: false,
+            createMarker: function(i, wp, nWps) {
+              return L.marker(wp.latLng, { draggable: false });
+            }
+          }).addTo(mapa);
+
+        }, err => {
+          alert("No se pudo obtener tu ubicación. Activa el GPS o permite el acceso.");
+        });
+      } else {
+        alert("Tu navegador no soporta la geolocalización.");
+      }
+    });
+  </script>
+
+  <!-- ===== BOTÓN "VOLVER ARRIBA" ===== -->
+  <button id="btn-arriba" title="Volver arriba">⬆</button>
+  <script src="../js/main.js"></script>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="../images/facebook.png" alt="Facebook" width="50" height="50">
+      </a>
+      <a href="https://www.twitter.com" target="_blank">
+        <img src="../images/twitter.png" alt="Twitter" width="50" height="50">
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <img src="../images/instagram.png" alt="Instagram" width="50" height="50">
+      </a>
+    </div>
+    <p>&copy; 2025 Manuel Barberá. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== AVISO DE COOKIES ===== -->
+  <div class="aviso-cookies" id="aviso-cookies">
+    <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. 
+      <a href="cookies.html" target="_blank">Más información</a>.
+    </p>
+    <button id="btn-aceptar-cookies">Aceptar</button>
+  </div>
+  <div id="fondo-aviso-cookies" class="fondo-aviso-cookies"></div>
+  <script src="../js/cookies.js"></script>
+
+</body>
+</html>

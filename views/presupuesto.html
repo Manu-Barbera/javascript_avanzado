@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presupuesto personalizado</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER Y NAVEGACIÓN ===== -->
+  <header>
+    <nav class="navbar">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="Logo de Manuel Barberá" width="50" height="50">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-item">Inicio</a></li>
+        <li><a href="galeria.html" class="nav-item">Galería</a></li>
+        <li><a href="presupuesto.html" class="nav-item">Presupuesto</a></li>
+        <li><a href="contacto.html" class="nav-item">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main>
+    <form id="formulario-presupuesto">
+      <!-- Datos personales -->
+      <fieldset>
+        <legend>Datos de contacto</legend>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label>
+          <input type="checkbox" id="condiciones" required>
+          Acepto las condiciones de privacidad
+        </label>
+      </fieldset>
+
+      <!-- Selección del presupuesto -->
+      <fieldset>
+        <legend>Presupuesto</legend>
+
+        <label for="producto">Producto:</label>
+        <select id="producto" name="producto">
+          <option value="web">Sitio Web Básico - 500€</option>
+          <option value="tienda">Tienda Online - 900€</option>
+          <option value="seo">Optimización SEO - 300€</option>
+        </select>
+
+        <label for="plazo">Plazo de entrega (en días):</label>
+        <input type="number" id="plazo" name="plazo" value="30" min="1">
+
+        <p>Extras:</p>
+        <label><input type="checkbox" class="extra" value="100"> Diseño personalizado (+100€)</label><br>
+        <label><input type="checkbox" class="extra" value="150"> Hosting incluido (+150€)</label><br>
+        <label><input type="checkbox" class="extra" value="80"> Mantenimiento mensual (+80€)</label>
+
+        <p><strong>Total estimado: <span id="total">0</span> €</strong></p>
+      </fieldset>
+
+      <button type="submit">Enviar</button>
+      <button type="reset">Resetear</button>
+    </form>
+  </main>
+
+  <!-- ===== FOOTER CON REDES ===== -->
+  <footer>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="../images/facebook.png" alt="Facebook" width="50" height="50">
+      </a>
+      <a href="https://www.twitter.com" target="_blank">
+        <img src="../images/twitter.png" alt="Twitter" width="50" height="50">
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <img src="../images/instagram.png" alt="Instagram" width="50" height="50">
+      </a>
+    </div>
+    <p>&copy; 2025 Manuel Barberá. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== BOTÓN "VOLVER ARRIBA" ===== -->
+  <button id="btn-arriba" title="Volver arriba">⬆</button>
+
+  <!-- ===== SCRIPTS JS ===== -->
+  <script src="../js/main.js"></script>
+  <script src="../js/cookies.js"></script>
+  <script src="../js/presupuesto.js"></script>
+
+  <!-- ===== AVISO DE COOKIES ===== -->
+  <div class="aviso-cookies" id="aviso-cookies">
+    <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. 
+      <a href="cookies.html" target="_blank">Más información</a>.
+    </p>
+    <button id="btn-aceptar-cookies">Aceptar</button>
+  </div>
+  <div id="fondo-aviso-cookies" class="fondo-aviso-cookies"></div>
+
+</body>
+</html>
