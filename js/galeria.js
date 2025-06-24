@@ -10,20 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const contenedor = document.querySelector(".contenedor-galeria");
 
+  if (!contenedor) {
+    console.error("No se encontró el contenedor de la galería.");
+    return;
+  }
+
   imagenes.forEach(src => {
     const img = document.createElement("img");
     img.src = src;
     img.alt = "Proyecto";
     img.classList.add("miniatura");
 
-    // Añadir dimensiones originales requeridas por la evaluación
+    // Establecer tamaño requerido
     img.width = 250;
     img.height = 250;
-
-    // Redimensionar visualmente con CSS si se desea
     img.style.width = "250px";
     img.style.height = "250px";
 
+    // Ampliar imagen al hacer clic
     img.addEventListener("click", () => {
       const overlay = document.createElement("div");
       overlay.className = "overlay";
